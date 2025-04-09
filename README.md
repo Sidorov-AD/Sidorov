@@ -42,7 +42,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 Запустите в терминале shh-agent.
 
 ```
-eval "$(ssh-agent -s)"
+ssh-agent -s
 ```
 > \> Agent pid 59566
 
