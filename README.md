@@ -3,22 +3,30 @@
 
 Авторизация в Git
 
-`git config --global user.name "USERNAME"`
-`git config --global user.email "EMAIL"`
+```
+git config --global user.name "USERNAME"
+git config --global user.email "EMAIL"
+```
 
 Далее надо перейти в рабочюю папку с помощью `cd` и выполнить
 
-`git init`
+```
+git init
+```
 
 Для синхронизации с GitHub использовать
 
-`git remote add origin git@github.com:USERNAME/REPOSITORY_NAME.git`
+```
+git remote add origin git@github.com:USERNAME/REPOSITORY_NAME.git
+```
 
 ## SSH
 ### Создание SSH-ключа
 Откройте Терминал. Вставьте в него следующий код, подставив в кавычки свой адрес электронной почты на GitHub. 
 
-`ssh-keygen -t ed25519 -C "your_email@example.com"`
+```
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
 
 После вам будет предложено ввести название файла, в который сохранится ключ. Нажмите Enter, чтобы принять предложенное название и расположение файла по умолчанию.
 
@@ -33,12 +41,16 @@
 ### Добавление ключа в ssh-агент
 Запустите в терминале shh-agent.
 
-`eval "$(ssh-agent -s)"`
+```
+eval "$(ssh-agent -s)"
+```
 > \> Agent pid 59566
 
 Добавьте свой приватный ключ SSH в ssh-agent. Если вы создали свой ключ под другим именем, замените id_ed25519 в команде именем вашего приватного ключа.
 
-`ssh-add ~/.ssh/id_ed25519`
+```
+ssh-add ~/.ssh/id_ed25519
+```
 
 В конце надо добавить публичный ключ в настройках аккаунта на GitHub.
 
@@ -47,43 +59,64 @@
 
 Создать новую ветку
 
-`git branch BRANCH_NAME`
+```
+git branch BRANCH_NAME
+```
 
 Перейти в определенную ветку
 
-`git checkout BRANCH_NAME`
+```
+git checkout BRANCH_NAME
+```
 
 Слияние ветки в текущую
 
-`git merge BRANCH_NAME`
+```
+git merge BRANCH_NAME
+```
 
 Нужно сообщить Git, что вы хотите добавить файл FILE в репозиторий. Для этого нужно просто набрать:
 
-```git add FILE```
+```
+git add FILE
+```
 
 Иногда проще добавить сразу все, чем возиться с отдельными файлами.
 
-`git add --all`
-    *или*
-`git add .`
+```
+git add --all
+или
+git add .
+```
 
 Теперь Git знает, что ему нужно отслеживать все изменения, которые происходят с файлом FILE. Вы можете в любое время посмотреть статус своего репозитория, набрав следующее:
 
-`git status`
+```
+git status
+```
 
  Хотя Git знает о файле, но он еще не записан в репозиторий. Самый простой способ сделать коммит - набрать:
 
-`git commit -am "Message"`
+```
+git commit -am "Message"
+```
  - `-m "сообщение"` — указать сообщение коммита прямо в командной строке  
  - `-a` (--all) — автоматически добавить все изменённые файлы в коммит (без git add)
   
 Каждый раз, когда вы вносите изменения в свой проект и хотите передать их на GitHub, вы можете ввести:
 
-`git push REMOTE_NAME BRANCH_NAME`
+```
+git push REMOTE_NAME BRANCH_NAME
+```
  - `REMOTE_NAME` — имя удалённого репозитория (обычно origin). 
  - `BRANCH_NAME` — ветка, которую вы хотите отправить.
  - `-u` — привязывает локальную ветку к удалённой (чтобы в будущем использовать просто git push):
 
+Для просмотра истории коммитов можно использовать 
+
+```
+git log
+```
 
 ## Частые ошибки и решения
 
